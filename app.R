@@ -43,6 +43,17 @@ ui <- fluidPage(
     mainPanel(
       plotOutput("s_plot")
     )
+  ), 
+  br(), 
+  h3("Summary Table of Means"), 
+  "The summary table below shows the means of the numerical variables grouped by species. The user may specify whether to also group by sex. The single checkbox ensures that only one of True or False is always selected. Note that in both cases, NA values in the numerical varaibles are dropped. Also, note that when True is selected, NA values in the sex variable are dropped. ", 
+  sidebarLayout(
+    sidebarPanel(
+      checkboxInput("check_value", "Group by sex", FALSE)
+    ), 
+    mainPanel(
+      tableOutput("mean_table")
+    )
   )
 )
 server <- function(input, output) {
@@ -60,6 +71,24 @@ server <- function(input, output) {
       ggplot(aes_string(x = input$s_plot_variable_one, y = input$s_plot_variable_two, colour="species")) + 
       geom_point() + 
       ggtitle("Scatterplot by Selected Year and Variables")
+  })
+  output$mean_table <- renderTable({
+    if(input$check_value == TRUE){
+      penguins %>%
+        group_by(species, sex) %>%
+        drop_na(sex) %>%
+        summarize(mean_bill_length = mean(bill_length_mm, na.rm = TRUE), 
+                  mean_bill_depth = mean(bill_depth_mm, na.rm = TRUE), 
+                  mean_flipper_length = mean(flipper_length_mm, na.rm=TRUE), 
+                  mean_body_mass = mean(body_mass_g, na.rm = TRUE))
+    } else{
+      penguins %>%
+        group_by(species) %>%
+        summarize(mean_bill_length = mean(bill_length_mm, na.rm = TRUE), 
+                  mean_bill_depth = mean(bill_depth_mm, na.rm = TRUE), 
+                  mean_flipper_length = mean(flipper_length_mm, na.rm=TRUE), 
+                  mean_body_mass = mean(body_mass_g, na.rm = TRUE))
+    }
   })
 }
 shinyApp(ui = ui, server = server)
