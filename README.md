@@ -8,7 +8,7 @@ This repository contains a project for a shiny app exploring the *penguins* data
 
 * The summary table of means uses the numerical variables grouped by species. The user may use the single check box to specify whether the table should also be grouped by sex, with the default being False. The single check box ensures that only one of True or False is always selected.
 
-The shiny app may be used here: 
+The shiny app may be used here: https://hannah-bobst.shinyapps.io/assignment-b3-hannah-bobst/ 
 
 The following files are included in the repository:
 
