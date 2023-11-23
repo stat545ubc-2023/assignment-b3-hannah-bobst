@@ -2,11 +2,11 @@
 
 This repository contains a project for a shiny app exploring the *penguins* data set from the *palmerpenguins* package. The exploration includes a boxplot, scatterplot, and summary table of means. 
 
-* The boxplot is created using one numerical variable grouped by species. The user may use a drop-down menu to specify which numerical variable should be plotted. 
+* The boxplot is created using one numerical variable grouped by species. The user may use a drop-down menu to specify which numerical variable should be plotted. This drop-down menu ensures that only numerical variables are selected. 
 
-* The scatterplot is created using two numerical variables grouped by species. The user may use two drop-down menus to specify which numerical variables should be plotted. The user may also use a slider to specify which year should be used.
+* The scatterplot is created using two numerical variables grouped by species. The user may use two drop-down menus to specify which numerical variables should be plotted. The user may also use a slider to specify which year should be used. The drop-down menus ensure that only two numerical variables are selected at a time. The slider ensures that only one of the three possible years is selected.
 
-* The summary table of means uses the numerical variables grouped by species. The user may use the single check box to specify whether the table should also be grouped by sex, with the default being False. 
+* The summary table of means uses the numerical variables grouped by species. The user may use the single check box to specify whether the table should also be grouped by sex, with the default being False. The single check box ensures that only one of True or False is always selected.
 
 The shiny app may be used here: 
 

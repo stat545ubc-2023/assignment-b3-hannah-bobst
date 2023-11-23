@@ -29,7 +29,7 @@ ui <- fluidPage(
   ),
   br(),
   h3("Scatterplot by Year"), 
-  "The user may select which variables to plot by species, as well as which year should be used. The drop-down menus ensure that only two numerical variables are selected at a time. The silder ensures that only one of the three possible years is selected.",
+  "The user may select which variables to plot by species, as well as which year should be used. The drop-down menus ensure that only two numerical variables are selected at a time. The slider ensures that only one of the three possible years is selected.",
   br(), 
   br(),
   # Side bar layout for scatterplot section
@@ -58,7 +58,7 @@ ui <- fluidPage(
   ), 
   br(), 
   h3("Summary Table of Means"), 
-  "The summary table below shows the means of the numerical variables grouped by species. The user may specify whether to also group by sex. The single checkbox ensures that only one of True or False is always selected. Note that in both cases, NA values in the numerical variables are dropped. Also, note that when True is selected, NA values in the sex variable are dropped.",
+  "The summary table below shows the means of the numerical variables grouped by species. The user may specify whether to also group by sex. The single check box ensures that only one of True or False is always selected. Note that in both cases, NA values in the numerical variables are dropped. Also, note that when True is selected, NA values in the sex variable are dropped.",
   br(), 
   br(),
   # Side bar layout for summary table section
